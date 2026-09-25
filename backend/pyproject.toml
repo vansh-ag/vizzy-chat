@@ -1,0 +1,51 @@
+[project]
+name = "vizzy-api"
+version = "0.1.0"
+description = "Vizzy Chat — conversational image-generation backend API"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.141.1",
+    "groq>=1.7.0",
+    "httpx>=0.28.1",
+    "huggingface-hub>=0.27.0",
+    "langchain-core>=1.6.3",
+    "langgraph>=1.2.11",
+    "pillow>=12.3.0",
+    "pydantic>=2.0",
+    "pydantic-settings>=2.15.0",
+    "python-multipart>=0.0.32",
+    "supabase>=2.31.0",
+    "uvicorn[standard]>=0.53.0",
+]
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "mypy>=2.3.1",
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+    "python-dotenv>=1.0.0",
+    "ruff>=0.16.8",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["B008"]
+
+[tool.ruff.lint.per-file-ignores]
+# Test files: allow long lines (mock chains and assertion messages are often unavoidably long)
+"tests/**/*.py" = ["E501"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = false
+ignore_missing_imports = true

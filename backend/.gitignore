@@ -1,0 +1,25 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+*.pyc
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv/
+
+# Environment variables — NEVER commit secrets
+.env
+
+# Test / lint / type-check caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# OS artifacts
+.DS_Store
+
+# E2E test artifacts (may contain test metadata but never secrets or images)
+tests/e2e/artifacts/
